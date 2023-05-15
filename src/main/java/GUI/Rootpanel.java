@@ -24,6 +24,7 @@ public class Rootpanel extends JFrame {
 
     public Rootpanel(List<String[]> cells) {
        createTable(cells);
+
         createTypeCombo();
         createGenreCombo();
 
@@ -43,23 +44,23 @@ public class Rootpanel extends JFrame {
 
     private void createTable(List<String[]> cells) {
 
-        Object[][] data = new Object[cells.size()][4];
+        Object[][] data = new Object[cells.size()][11];
         for (int i = 0; i < cells.size(); i++) {
             data[i] = cells.get(i);
         }
-        showtable.setModel(new DefaultTableModel(
-                data,
-                cells.get(4)
-        ));
-        TableColumnModel column = showtable.getColumnModel();
-        column.getColumn(0).setMinWidth(200);
 
+
+        TableColumnModel column = showtable.getColumnModel();
+         column.getColumn(0).setMinWidth(200);
         DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
         cellRenderer.setHorizontalAlignment(JLabel.CENTER);
 
-        column.getColumn(1).setCellRenderer(cellRenderer);
-        column.getColumn(2).setCellRenderer(cellRenderer);
-        column.getColumn(3).setCellRenderer(cellRenderer);
+        for (int i = 0; i < 11; i++) {
+            column.getColumn(i).setCellRenderer(cellRenderer);
+//
+
+        }
+
 
 
     }
